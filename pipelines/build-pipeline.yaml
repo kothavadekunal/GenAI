@@ -1,8 +1,5 @@
-trigger:
-  branches:
-    include:
-      None  # Runs the pipeline when new code is pushed to main
-
+trigger: none
+  
 pool:
   name: 'Default'  # Using a Self-hosted agent
 
