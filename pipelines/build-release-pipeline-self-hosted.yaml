@@ -26,4 +26,5 @@ stages:
     steps:
     - script: |
         kubectl apply -f $(Build.SourcesDirectory)/manifests/deployment.yaml
+        kubectl apply -f $(Build.SourcesDirectory)/manifests/service.yaml
       displayName: Deploy to Local Kubernetes

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+spec:
+  selector:
+    app: first-fastapi-app  # Make sure this matches the label in your Deployment
+  ports:
+    - protocol: TCP
+      port: 80          # External port
+      targetPort: 8516  # Port your FastAPI app runs on inside the container
+  type: LoadBalancer
