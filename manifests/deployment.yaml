@@ -18,6 +18,8 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        env:
-        - name: "PORT"
-          value: "8516"
+        ports:
+        - containerPort: 8516
+        envFrom:
+        - secretRef:
+            name: fastapi-secret
