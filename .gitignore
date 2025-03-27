@@ -1,3 +1,5 @@
 .env
 .lang_venv
 .DS_Store
+examples/
+*.pyc
