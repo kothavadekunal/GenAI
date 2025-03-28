@@ -8,10 +8,7 @@ stages:
     pool:
       name: 'Default'  # Use self-hosted agent
     steps:
-    - download: current
-      artifact: s
-
     - script: |
-        kubectl apply -f $(Pipeline.Workspace)/s/manifests/deployment.yaml
-        kubectl apply -f $(Pipeline.Workspace)/s/manifests/service.yaml
+        kubectl apply -f $(Build.SourcesDirectory)/manifests/deployment.yaml
+        kubectl apply -f $(Build.SourcesDirectory)/manifests/service.yaml
       displayName: Deploy to Local Kubernetes
