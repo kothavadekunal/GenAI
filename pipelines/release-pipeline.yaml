@@ -12,6 +12,6 @@ stages:
       artifact: drop
 
     - script: |
-        kubectl apply -f $(Pipeline.Workspace)/drop/manifests/deployment.yaml
-        kubectl apply -f $(Pipeline.Workspace)/drop/manifests/service.yaml
+        kubectl apply -f $(Pipeline.Workspace)/s/manifests/deployment.yaml
+        kubectl apply -f $(Pipeline.Workspace)/s/manifests/service.yaml
       displayName: Deploy to Local Kubernetes
