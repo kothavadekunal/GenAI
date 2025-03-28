@@ -15,16 +15,8 @@ stages:
         repository: 'kunalkothavade/first-fastapi-app'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: 'latest'
+        tags: '$(Build.BuildId)'
+    
+    - publish: $(Build.ArtifactStagingDirectory)
+      artifact: drop
 
-- stage: Deploy
-  displayName: Deploy to Kubernetes
-  jobs:
-  - job: DeployToK8s
-    pool:
-      name: 'Default'  # Use self-hosted agent
-    steps:
-    - script: |
-        kubectl apply -f $(Build.SourcesDirectory)/manifests/deployment.yaml
-        kubectl apply -f $(Build.SourcesDirectory)/manifests/service.yaml
-      displayName: Deploy to Local Kubernetes

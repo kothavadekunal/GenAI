@@ -1,0 +1,17 @@
+trigger: none
+  
+stages:
+- stage: Deploy
+  displayName: Deploy to Kubernetes from Selected Build
+  jobs:
+  - job: DeployToK8s
+    pool:
+      name: 'Default'  # Use self-hosted agent
+    steps:
+    - download: current
+      artifact: drop
+
+    - script: |
+        kubectl apply -f $(Pipeline.Workspace)/drop/manifests/deployment.yaml
+        kubectl apply -f $(Pipeline.Workspace)/drop/manifests/service.yaml
+      displayName: Deploy to Local Kubernetes
