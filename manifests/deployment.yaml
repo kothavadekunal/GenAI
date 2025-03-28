@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: first-fastapi-app
-        image: docker.io/kunalkothavade/first-fastapi-app:$(Build.BuildId)
+        image: docker.io/kunalkothavade/first-fastapi-app:latest
         resources:
           limits:
             memory: "128Mi"
