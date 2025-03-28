@@ -18,8 +18,8 @@ stages:
         tags: '$(Build.BuildId)'
     
     - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact'
-    inputs:
-      pathToPublish: $(Build.ArtifactStagingDirectory)
-      artifactName: drop  # Ensure this matches the name in the release pipeline
+      displayName: 'Publish Artifact'
+      inputs:
+        pathToPublish: $(Build.ArtifactStagingDirectory)
+        artifactName: drop  # Ensure this matches the name in the release pipeline
 
