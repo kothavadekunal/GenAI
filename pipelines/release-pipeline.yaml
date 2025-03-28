@@ -9,7 +9,7 @@ stages:
       name: 'Default'  # Use self-hosted agent
     steps:
     - download: current
-      artifact: drop
+      artifact: s
 
     - script: |
         kubectl apply -f $(Pipeline.Workspace)/s/manifests/deployment.yaml
