@@ -16,7 +16,14 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: '$(Build.BuildId)'
-    
+
+    - task: CopyFiles@2
+      displayName: 'Copy All Deployment Files to Staging Directory'
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'  # Copy everything from the repo
+        Contents: '**'  # Copy all files in the repo
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact'
       inputs:
